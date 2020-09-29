@@ -4095,11 +4095,11 @@ void MemberDefImpl::warnIfUndocumented() const
        /* save undocumented item*/
        saveUndocummentedItem(cd,nd,fd,gd,d,LIST_AUTO_GENERATE_STRUCT[0]);
 
-       /* auto generate comment */
-       //autoGenerateComment(LIST_AUTO_GENERATE_STRUCT[no]);
-	
-       /* merge generated comment */
+       /*insert  comment */
        transform(LIST_AUTO_GENERATE_STRUCT[no-1]); 
+       
+       /*auto generate comment */
+       //autoGenerateComment(LIST_AUTO_GENERATE_STRUCT[no]);
   } 
 }
 
@@ -4254,88 +4254,15 @@ void MemberDefImpl::saveUndocummentedItem( const ClassDef     *cd,
   ss <<" is not documented.\r\n";
   printf("%s",ss.str().c_str());
   output.open (outputDir.data(),ios::app);
-  output << ss.str();
-  output.close();
+  if (output)
+  {
+  	output << ss.str();
+	 output.close();
+  }
 }
 
 void MemberDefImpl::autoGenerateComment( _auto_generate_s &lags) const
 {
-  
-  /***********
-   * by pass #define, variable, typedef,enum
-   * ************/
-  #if 0
-  if (ags.type==QCString("#define"))
-  {
-  	return;
-  }
-  char* data=(char*)ags.type.data();
-  if (data!=NULL)
-  {
-  	data[6]='\0';	
-  }
-  if (QCString(data) == QCString("struct"))
-  {
-  	return;
-  }
-  if (QCString(data) == QCString("typedef"))
-  {
-  	return;
-  }
-  if (ags.member==QCString("variable"))
-  {
-  	return;
-  }
-  if (ags.member==QCString("typedef"))
-  {
-  	return;
-  }
-  if (ags.member==QCString("enum"))
-  {
-  	return;
-  }
-  if (ags.member==QCString(""))
-  {
-  	return;
-  }
-  
-  QCString oag=Config_getString(OUTPUT_AUTO_GENERATE_DIR);
-  QDir dir(oag);
-  if (!dir.exists())
-  {
-    dir.setPath(QDir::currentDirPath());
-    if (!dir.mkdir(oag))
-    {
-     term("tag OUTPUT_AUTO_GENERATE_DIR directory '%s' does not "
-        "exist and cannot be created\n",oag.data());
-    }
-    else
-    {
-     msg("Notice: directory '%s' does not exist. "
-        "I have created it for you.\n", oag.data());
-    }
-   }
-   dir.cd(oag);
-   QCString outputDir=dir.absPath().utf8();
-   outputDir=outputDir+"/autogeneratecomment.txt";
-   ofstream output;
-   stringstream ss;
-    
-   ss <<ags.no_line<<" ";
-   ss <<ags.absFile.data()<<" ";
-   ss <<ags.type.data()<<" ";
-   ss <<ags.name.data()<<" ";
-   ss <<ags.arg.data()<<" "; 
-   ss <<ags.member.data()<<" ";
-   ss <<ags.t.data()<<" "; 
-   //ss <<ags.d_name.data()<<" ";
-   ss <<"\r\n\r\n";
-
-   printf("%s",ss.str().c_str());
-   output.open (outputDir.data(),ios::app);
-   output << ss.str();
-   output.close();
-   #endif
 }
 
 bool MemberDefImpl::readline(FILE* id,char* buffer ) const
@@ -4365,14 +4292,12 @@ bool MemberDefImpl::readline(FILE* id,char* buffer ) const
 void MemberDefImpl::transform( _auto_generate_s& lags ) const
 {
   int nb_line=0;
-  #define DOXY_HEADER "* a normal member taking two arguments and returning an integer value.\n"\
-  "* @param a an integer argument.\n"\
-  "* @param s a constant character pointer.\n"\
-  "* @see Javadoc_Test()\n"\
-  "* @see ~Javadoc_Test()\n"\
-  "* @see testMeToo()\n"\
-  "* @see publicVar()\n"\
-  "* @return The test results"
+  #define DOXY_HEADER 	"DOXYBLOCK\n"\
+  			"fn []\n"\
+  			"brief []\n"\
+  			"param []\n"\
+  			"return []\n"
+
   
   QCString templ(DOXY_HEADER);
   FILE* id=NULL;
@@ -4384,7 +4309,6 @@ void MemberDefImpl::transform( _auto_generate_s& lags ) const
   ofstream output2;
   stringstream ss;
   stringstream ss2;
-  
   id=fopen (src.data(),"r");
   if(id)  
   {    
@@ -4407,12 +4331,8 @@ void MemberDefImpl::transform( _auto_generate_s& lags ) const
         nb_line++;   
         if (lags.prev==NULL && lags.show==false)	
 	{
-        	ss <<"\\!";
-        	ss2<<"\\!";
 		ss<<DOXY_HEADER;
 		ss2<<DOXY_HEADER;
-		ss<<"*/\n";
-		ss2<<"*/\n";
 		ss<<nb_line<<" ("<<lags.no_line<<") "<<buffer;
 		ss2<<buffer;
 		lags.show=true;
@@ -4431,12 +4351,8 @@ void MemberDefImpl::transform( _auto_generate_s& lags ) const
 	}
 	else if (lags.prev && (nb_line>=lags.prev->no_line) && lags.show==false)
 	{
-        	ss<<"\\!";
-        	ss2<<"\\!";
 		ss<<DOXY_HEADER;
 		ss2<<DOXY_HEADER;
-		ss<<"*/\n";
-		ss2<<"*/\n";
 		ss<<nb_line<<" ("<<lags.no_line<<") "<<buffer;
 		ss2<<buffer;
 		lags.show=true;
