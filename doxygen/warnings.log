@@ -1,0 +1,333 @@
+warning: The selected output language "french" has not been updated
+since release 1.8.15.  As a result some sentences may appear in English.
+
+error: Tag file 'qtools_docs/qtools.tag' does not exist or is not a file. Skipping it...
+/home/gaetana/doxygen/build/generated_src/commentscan.cpp:9486: warning: Reached end of file while still inside a (nested) comment. Nesting level 1 (probable line reference: 4372)
+/home/gaetana/doxygen/testing/025_example.cpp:22: warning: Example example_test.cpp was already documented. Ignoring documentation found here.
+/home/gaetana/doxygen/build/generated_src/defargs.cpp:3411: warning: documented symbol 'unsigned int KeywordHash::hash' was not declared or defined.
+/home/gaetana/doxygen/build/generated_src/defargs.cpp:3459: warning: no uniquely matching class member found for 
+  const char * KeywordHash::find(const char *str, unsigned int len)
+
+/home/gaetana/doxygen/qtools/qglobal.cpp:53: warning: class 'QApplication' for related function 'qVersion' is not documented.
+/home/gaetana/doxygen/qtools/qglobal.cpp:79: warning: class 'QApplication' for related function 'qSysInfo' is not documented.
+/home/gaetana/doxygen/qtools/qglobal.cpp:150: warning: class 'QApplication' for related function 'qDebug' is not documented.
+/home/gaetana/doxygen/qtools/qglobal.cpp:175: warning: class 'QApplication' for related function 'qWarning' is not documented.
+/home/gaetana/doxygen/qtools/qglobal.cpp:204: warning: class 'QApplication' for related function 'qFatal' is not documented.
+/home/gaetana/doxygen/qtools/qglobal.cpp:490: warning: class 'QApplication' for related function 'ASSERT' is not documented.
+/home/gaetana/doxygen/qtools/qglobal.cpp:525: warning: class 'QApplication' for related function 'CHECK_PTR' is not documented.
+/home/gaetana/doxygen/qtools/qglobal.cpp:675: warning: class 'QApplication' for related function 'qInstallMsgHandler' is not documented.
+/home/gaetana/doxygen/qtools/qlist.h:121: warning: no uniquely matching class member found for 
+  template 
+  void QList< void >::deleteValue(void *) const
+
+/home/gaetana/doxygen/qtools/qstring.cpp:14693: warning: no uniquely matching class member found for 
+  QString::operator const char *() const
+
+/home/gaetana/doxygen/qtools/qtextstream.cpp:607: warning: no uniquely matching class member found for 
+  Encoding QTextStream::encoding() const
+
+/home/gaetana/doxygen/src/doxygen.md:1: warning: found more than one \mainpage comment block! (first occurrence: /home/gaetana/doxygen/addon/doxmlparser/examples/metrics/main.cpp, line 17), Skipping current block!
+/home/gaetana/doxygen/testing/021_dontinclude.cpp:12: warning: found more than one \mainpage comment block! (first occurrence: /home/gaetana/doxygen/addon/doxmlparser/examples/metrics/main.cpp, line 17), Skipping current block!
+/home/gaetana/doxygen/testing/022_dot.cpp:11: warning: found more than one \mainpage comment block! (first occurrence: /home/gaetana/doxygen/addon/doxmlparser/examples/metrics/main.cpp, line 17), Skipping current block!
+/home/gaetana/doxygen/testing/028_formula.c:4: warning: found more than one \mainpage comment block! (first occurrence: /home/gaetana/doxygen/addon/doxmlparser/examples/metrics/main.cpp, line 17), Skipping current block!
+/home/gaetana/doxygen/testing/032_include.cpp:4: warning: found more than one \mainpage comment block! (first occurrence: /home/gaetana/doxygen/addon/doxmlparser/examples/metrics/main.cpp, line 17), Skipping current block!
+/home/gaetana/doxygen/testing/049_snippet.cpp:4: warning: found more than one \mainpage comment block! (first occurrence: /home/gaetana/doxygen/addon/doxmlparser/examples/metrics/main.cpp, line 17), Skipping current block!
+/home/gaetana/doxygen/testing/076_emojis.cpp:3: warning: found more than one \mainpage comment block! (first occurrence: /home/gaetana/doxygen/addon/doxmlparser/examples/metrics/main.cpp, line 17), Skipping current block!
+error: Problems running latex. Check your installation or look for typos in _formulas.tex and check _formulas.log!
+error: Problems running dvips. Check your installation!
+/home/gaetana/doxygen/examples/example.cpp:19: warning: included file example_test.cpp is not found. Check your EXAMPLE_PATH
+/home/gaetana/doxygen/testing/009_bug.cpp:54: warning: Found unknown command '\reminder'
+/home/gaetana/doxygen/testing/009_bug.cpp:58: warning: Found unknown command '\reminder'
+warning: Caller graph for 'debug' not generated, too many nodes (109), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Caller graph for 'debug' not generated, too many nodes (109), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+/home/gaetana/doxygen/build/generated_src/defargs.cpp:3524: warning: argument 'al' of command @param is not found in the argument list of stringToArgumentList(SrcLangExt lang, const char *argsString, QCString *extraTypeChars)
+/home/gaetana/doxygen/build/generated_src/defargs.cpp:3531: warning: The following parameter of stringToArgumentList(SrcLangExt lang, const char *argsString, QCString *extraTypeChars) is not documented:
+  parameter 'lang'
+/home/gaetana/doxygen/libmscgen/gd.c:4486: warning: Unsupported xml/html tag <gdImageColorClosestAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.c:4500: warning: Unsupported xml/html tag <gdImageColorExact> found
+/home/gaetana/doxygen/libmscgen/gd.c:4516: warning: Unsupported xml/html tag <gdImageColorExactAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.c:4520: warning: Unsupported xml/html tag <gdImageColorExactAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.c:4535: warning: Unsupported xml/html tag <gdImageColorClosest> found
+/home/gaetana/doxygen/libmscgen/gd.c:4552: warning: Unsupported xml/html tag <gdImageColorClosestAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.c:4553: warning: Unsupported xml/html tag <gdTrueColorAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.c:4557: warning: Unsupported xml/html tag <gdImageColorAllocateAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.c:4570: warning: Unsupported xml/html tag <gdImageColorDeallocate> found
+/home/gaetana/doxygen/libmscgen/gd.c:4587: warning: Unsupported xml/html tag <gdImageColorDeallocate> found
+/home/gaetana/doxygen/libmscgen/gd.c:4597: warning: Unsupported xml/html tag <gdImageGetTrueColorPixel> found
+/home/gaetana/doxygen/libmscgen/gd.c:4598: warning: Unsupported xml/html tag <gdImagePalettePixel> found
+/home/gaetana/doxygen/libmscgen/gd.c:4599: warning: Unsupported xml/html tag <gdImageTrueColorPixel> found
+/home/gaetana/doxygen/libmscgen/gd.c:4609: warning: Unsupported xml/html tag <gdImageGetPixel> found
+/home/gaetana/doxygen/libmscgen/gd.c:4610: warning: Unsupported xml/html tag <gdImageTrueColorPixel> found
+/home/gaetana/doxygen/libmscgen/gd.c:4619: warning: Unsupported xml/html tag <Image> found
+/home/gaetana/doxygen/libmscgen/gd.c:4629: warning: Unsupported xml/html tag <gdImageAlphaBlending> found
+/home/gaetana/doxygen/libmscgen/gd.c:4630: warning: Unsupported xml/html tag <gdLayerOverlay> found
+/home/gaetana/doxygen/libmscgen/gd.c:4631: warning: Unsupported xml/html tag <gdLayerMultiply> found
+/home/gaetana/doxygen/libmscgen/gd.c:4640: warning: Unsupported xml/html tag <gdImageAlphaBlending> found
+/home/gaetana/doxygen/libmscgen/gd.c:4641: warning: Unsupported xml/html tag <gdAlphaBlend> found
+/home/gaetana/doxygen/libmscgen/gd.c:4642: warning: Unsupported xml/html tag <gdLayerMultiply> found
+/home/gaetana/doxygen/libmscgen/gd.c:4651: warning: Unsupported xml/html tag <gdImageAlphaBlending> found
+/home/gaetana/doxygen/libmscgen/gd.c:4652: warning: Unsupported xml/html tag <gdAlphaBlend> found
+/home/gaetana/doxygen/libmscgen/gd.c:4653: warning: Unsupported xml/html tag <gdLayerOverlay> found
+/home/gaetana/doxygen/libmscgen/gd.c:4664: warning: Unsupported xml/html tag <gdImageTrueColorToPalette> found
+/home/gaetana/doxygen/libmscgen/gd.c:4354: warning: Unsupported xml/html tag <gdImageColorAllocate> found
+/home/gaetana/doxygen/libmscgen/gd.c:4355: warning: Unsupported xml/html tag <gdImageColorAllocateAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.c:4364: warning: Unsupported xml/html tag <gdImageGetTransparent> found
+/home/gaetana/doxygen/libmscgen/gd.c:4377: warning: Unsupported xml/html tag <gdImageCharUp> found
+/home/gaetana/doxygen/libmscgen/gd.c:4380: warning: Unsupported xml/html tag <gdFontPtr> found
+/home/gaetana/doxygen/libmscgen/gd.c:4393: warning: Unsupported xml/html tag <gdImageStringUp> found
+/home/gaetana/doxygen/libmscgen/gd.c:4394: warning: Unsupported xml/html tag <gdImageString16> found
+/home/gaetana/doxygen/libmscgen/gd.c:4395: warning: Unsupported xml/html tag <gdImageStringUp16> found
+/home/gaetana/doxygen/libmscgen/gd.c:4398: warning: Unsupported xml/html tag <gdFontPtr> found
+/home/gaetana/doxygen/libmscgen/gd.c:4399: warning: Unsupported xml/html tag <gdImageStringTTF> found
+/home/gaetana/doxygen/libmscgen/gd.c:4416: warning: Unsupported xml/html tag <gdImageFilledRectangle> found
+/home/gaetana/doxygen/libmscgen/gd.c:4431: warning: Unsupported xml/html tag <gdImageCopyMerge> found
+/home/gaetana/doxygen/libmscgen/gd.c:4432: warning: Unsupported xml/html tag <gdImageCopyMergeGray> found
+/home/gaetana/doxygen/libmscgen/gd.c:4454: warning: Unsupported xml/html tag <gdImageCopy> found
+/home/gaetana/doxygen/libmscgen/gd.c:4455: warning: Unsupported xml/html tag <gdImageCopyMergeGray> found
+/home/gaetana/doxygen/libmscgen/gd.c:4478: warning: Unsupported xml/html tag <gdImageCopy> found
+/home/gaetana/doxygen/libmscgen/gd.c:4479: warning: Unsupported xml/html tag <gdImageCopyMerge> found
+/home/gaetana/doxygen/libmscgen/gd.c:4499: warning: Unsupported xml/html tag <gdImageCopyResampled> found
+/home/gaetana/doxygen/libmscgen/gd.c:4500: warning: Unsupported xml/html tag <gdImageScale> found
+/home/gaetana/doxygen/libmscgen/gd.c:4518: warning: Unsupported xml/html tag <gdImageRotateInterpolated> found
+/home/gaetana/doxygen/libmscgen/gd.c:4539: warning: Unsupported xml/html tag <gdImageCopyResized> found
+/home/gaetana/doxygen/libmscgen/gd.c:4540: warning: Unsupported xml/html tag <gdImageScale> found
+/home/gaetana/doxygen/libmscgen/gd.c:4548: warning: Unsupported xml/html tag <gdPoint> found
+/home/gaetana/doxygen/libmscgen/gd.c:4553: warning: Unsupported xml/html tag <gdImageOpenPolygon> found
+/home/gaetana/doxygen/libmscgen/gd.c:4554: warning: Unsupported xml/html tag <gdImageFilledPolygon> found
+/home/gaetana/doxygen/libmscgen/gd.c:4560: warning: Unsupported xml/html tag <gdPoint> found
+/home/gaetana/doxygen/libmscgen/gd.c:4565: warning: Unsupported xml/html tag <gdImagePolygon> found
+/home/gaetana/doxygen/libmscgen/gd.c:4575: warning: Unsupported xml/html tag <gdPoint> found
+/home/gaetana/doxygen/libmscgen/gd.c:4580: warning: Unsupported xml/html tag <gdImagePolygon> found
+/home/gaetana/doxygen/libmscgen/gd.c:4603: warning: Unsupported xml/html tag <gdAntiAliased> found
+/home/gaetana/doxygen/libmscgen/gd.c:4604: warning: Unsupported xml/html tag <gdImageLine> found
+/home/gaetana/doxygen/libmscgen/gd.c:4604: warning: Unsupported xml/html tag <gdImagePolygon> found
+/home/gaetana/doxygen/libmscgen/gd.c:4616: warning: Unsupported xml/html tag <gdImageSetAntiAliasedDontBlend> found
+/home/gaetana/doxygen/libmscgen/gd.c:4620: warning: Unsupported xml/html tag <gdImageSetAntiAliased> found
+/home/gaetana/doxygen/libmscgen/gd.c:4639: warning: Unsupported xml/html tag <gdImageGetInterlaced> found
+/home/gaetana/doxygen/libmscgen/gd.c:4654: warning: Unsupported xml/html tag <Effects> found
+/home/gaetana/doxygen/libmscgen/gd.c:4675: warning: Unsupported xml/html tag <gdImageGetClip> found
+/home/gaetana/doxygen/libmscgen/gd.c:4687: warning: Unsupported xml/html tag <gdImageSetClip> found
+/home/gaetana/doxygen/libmscgen/gd.c:4697: warning: Unsupported xml/html tag <gdImageResolutionX> found
+/home/gaetana/doxygen/libmscgen/gd.c:4698: warning: Unsupported xml/html tag <gdImageResolutionY> found
+/home/gaetana/doxygen/libmscgen/gd.h:1585: warning: Unsupported xml/html tag <gdImageCompare> found
+/home/gaetana/doxygen/libmscgen/gd.h:192: warning: Unsupported xml/html tag <gdAlphaBlend> found
+/home/gaetana/doxygen/libmscgen/gd.h:194: warning: Unsupported xml/html tag <gdLayerOverlay> found
+/home/gaetana/doxygen/libmscgen/gd.h:196: warning: Unsupported xml/html tag <gdLayerMultiply> found
+/home/gaetana/doxygen/libmscgen/gd.h:199: warning: Unsupported xml/html tag <gdImageAlphaBlending> found
+/home/gaetana/doxygen/libmscgen/gd.h:1393: warning: Unsupported xml/html tag <gdImageInterlace> found
+/home/gaetana/doxygen/libmscgen/gd.h:1377: warning: Unsupported xml/html tag <gdImageColorTransparent> found
+/home/gaetana/doxygen/libmscgen/gd.h:1411: warning: Unsupported xml/html tag <gdImageTrueColorPixel> found
+/home/gaetana/doxygen/libmscgen/gd.h:1412: warning: Unsupported xml/html tag <gdImageGetPixel> found
+/home/gaetana/doxygen/libmscgen/gd.h:1444: warning: Unsupported xml/html tag <gdImageResolutionY> found
+/home/gaetana/doxygen/libmscgen/gd.h:1445: warning: Unsupported xml/html tag <gdImageSetResolution> found
+/home/gaetana/doxygen/libmscgen/gd.h:1458: warning: Unsupported xml/html tag <gdImageResolutionX> found
+/home/gaetana/doxygen/libmscgen/gd.h:1459: warning: Unsupported xml/html tag <gdImageSetResolution> found
+/home/gaetana/doxygen/libmscgen/gd.h:1430: warning: Unsupported xml/html tag <gdImagePalettePixel> found
+/home/gaetana/doxygen/libmscgen/gd.h:1431: warning: Unsupported xml/html tag <gdImageGetTrueColorPixel> found
+/home/gaetana/doxygen/libmscgen/gd.h:545: warning: Unsupported xml/html tag <gdTrueColorAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.h:546: warning: Unsupported xml/html tag <gdTrueColorGetAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.h:546: warning: Unsupported xml/html tag <gdTrueColorGetRed> found
+/home/gaetana/doxygen/libmscgen/gd.h:547: warning: Unsupported xml/html tag <gdTrueColorGetGreen> found
+/home/gaetana/doxygen/libmscgen/gd.h:547: warning: Unsupported xml/html tag <gdTrueColorGetBlue> found
+/home/gaetana/doxygen/libmscgen/gd.h:553: warning: Unsupported xml/html tag <gdImageSetStyle> found
+/home/gaetana/doxygen/libmscgen/gd.h:554: warning: Unsupported xml/html tag <gdImageSetBrush> found
+/home/gaetana/doxygen/libmscgen/gd.h:556: warning: Unsupported xml/html tag <gdImageSetTile> found
+/home/gaetana/doxygen/libmscgen/gd.h:928: warning: Unsupported xml/html tag <gdTrueColorGetAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.h:929: warning: Unsupported xml/html tag <gdTrueColorGetRed> found
+/home/gaetana/doxygen/libmscgen/gd.h:930: warning: Unsupported xml/html tag <gdTrueColorGetGreen> found
+/home/gaetana/doxygen/libmscgen/gd.h:931: warning: Unsupported xml/html tag <gdTrueColorGetBlue> found
+/home/gaetana/doxygen/libmscgen/gd.h:932: warning: Unsupported xml/html tag <gdImageColorExactAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.h:136: warning: Unsupported xml/html tag <gdTrueColorAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.h:175: warning: Unsupported xml/html tag <gdTrueColorAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.h:162: warning: Unsupported xml/html tag <gdTrueColorAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.h:149: warning: Unsupported xml/html tag <gdTrueColorAlpha> found
+/home/gaetana/doxygen/libmscgen/gd.h:1078: warning: Unsupported xml/html tag <gdImageGifAnimAdd> found
+/home/gaetana/doxygen/libmscgen/gd.h:1517: warning: Unsupported xml/html tag <gdImageCropAuto> found
+/home/gaetana/doxygen/libmscgen/gd.h:282: warning: Unsupported xml/html tag <gdImageSetInterpolationMethod> found
+/home/gaetana/doxygen/libmscgen/gd.h:283: warning: Unsupported xml/html tag <gdImageGetInterpolationMethod> found
+/home/gaetana/doxygen/libmscgen/gd.h:243: warning: Unsupported xml/html tag <gdImageTrueColorToPaletteSetMethod> found
+/home/gaetana/doxygen/libmscgen/gdfonts.c:15: warning: Unsupported xml/html tag <gdImageChar> found
+/home/gaetana/doxygen/libmscgen/gdfonts.c:15: warning: Unsupported xml/html tag <gdImageString> found
+/home/gaetana/doxygen/libmscgen/gdfontt.c:18: warning: Unsupported xml/html tag <gdImageChar> found
+/home/gaetana/doxygen/libmscgen/gdfontt.c:18: warning: Unsupported xml/html tag <gdImageString> found
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:904: warning: The following parameter of arcBox(Context *ctx, unsigned int ymin, unsigned int ymax, unsigned int boxStart, unsigned int boxEnd, MscArcType boxType, const char *lineColour, const char *bgColour) is not documented:
+  parameter 'ctx'
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:1202: warning: argument 'ymin' of command @param is not found in the argument list of arcLine(Context *ctx, Msc m, unsigned int y, unsigned int ygradient, unsigned int startCol, unsigned int endCol, const char *arcLineCol, Boolean hasArrows, const int hasBiArrows, const MscArcType arcType)
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:1202: warning: argument 'ymax' of command @param is not found in the argument list of arcLine(Context *ctx, Msc m, unsigned int y, unsigned int ygradient, unsigned int startCol, unsigned int endCol, const char *arcLineCol, Boolean hasArrows, const int hasBiArrows, const MscArcType arcType)
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:1216: warning: The following parameters of arcLine(Context *ctx, Msc m, unsigned int y, unsigned int ygradient, unsigned int startCol, unsigned int endCol, const char *arcLineCol, Boolean hasArrows, const int hasBiArrows, const MscArcType arcType) are not documented:
+  parameter 'ctx'
+  parameter 'y'
+  parameter 'arcLineCol'
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:1069: warning: argument 'arcTextColour' from the argument list of arcText has multiple @param documentation sections
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:1069: warning: The following parameters of arcText(Context *ctx, Msc m, FILE *ismap, unsigned int outwidth, unsigned int ymid, int ygradient, unsigned int startCol, unsigned int endCol, const unsigned int arcLabelLineCount, char **arcLabelLines, const char *arcUrl, const char *arcId, const char *arcIdUrl, const char *arcTextColour, const char *arcTextBgColour, const MscArcType arcType) are not documented:
+  parameter 'ctx'
+  parameter 'ygradient'
+  parameter 'arcTextBgColour'
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:858: warning: The following parameter of arrowL(Context *ctx, unsigned int x, unsigned int y, MscArcType type) is not documented:
+  parameter 'ctx'
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:815: warning: The following parameter of arrowR(Context *ctx, unsigned int x, unsigned int y, MscArcType type) is not documented:
+  parameter 'ctx'
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:443: warning: The following parameter of computeCanvasSize(Context *ctx, Msc m, unsigned int *w, unsigned int *h) is not documented:
+  parameter 'ctx'
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:337: warning: The following parameter of computeLabelLines(Context *ctx, Msc m, const MscArcType arcType, char ***lines, const char *label, int startCol, int endCol) is not documented:
+  parameter 'ctx'
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:781: warning: The following parameter of entityLines(Context *ctx, Msc m, const unsigned int ymin, const unsigned int ymax, Boolean dotted, const ADrawColour *colourRefs) is not documented:
+  parameter 'ctx'
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:677: warning: The following parameter of entityText(Context *ctx, FILE *ismap, unsigned int x, unsigned int y, const char *entLabel, const char *entUrl, const char *entId, const char *entIdUrl, const char *entColour, const char *entBgColour) is not documented:
+  parameter 'ctx'
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:567: warning: argument 'y2' from the argument list of ismapRect has multiple @param documentation sections
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:567: warning: The following parameter of ismapRect(FILE *ismap, const char *url, unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2) is not documented:
+  parameter 'y1'
+/home/gaetana/doxygen/libmscgen/mscgen_api.c:249: warning: The following parameter of splitStringToWidth(Context *ctx, char *l, unsigned int width) is not documented:
+  parameter 'ctx'
+warning: Caller graph for 'qPrint' not generated, too many nodes (109), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Caller graph for 'endl' not generated, too many nodes (476), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Caller graph for 'endl' not generated, too many nodes (476), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+/home/gaetana/doxygen/build/generated_src/defargs.cpp:3524: warning: argument 'al' of command @param is not found in the argument list of stringToArgumentList(SrcLangExt lang, const char *argsString, QCString *extraTypeChars)
+/home/gaetana/doxygen/src/defargs.h:27: warning: The following parameter of stringToArgumentList(SrcLangExt lang, const char *argsString, QCString *extraTypeChars) is not documented:
+  parameter 'lang'
+warning: Call graph for 'parseInput' not generated, too many nodes (115), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Call graph for 'parseInput' not generated, too many nodes (115), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Caller graph for 'err' not generated, too many nodes (151), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Call graph for 'generateXMLForMember' not generated, too many nodes (108), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+/home/gaetana/doxygen/testing/009_bug.cpp:54: warning: Found unknown command '\reminder'
+/home/gaetana/doxygen/examples/include.cpp:12: warning: included file include_test.cpp is not found. Check your EXAMPLE_PATH
+/home/gaetana/doxygen/libmscgen/mscgen_msc.h:240: warning: The following parameters of MscGetEntAttrib(Msc m, unsigned int entIdx, MscAttribType a) are not documented:
+  parameter 'm'
+  parameter 'a'
+/home/gaetana/doxygen/src/clangparser.h:33: warning: argument 'fileName' of command @param is not found in the argument list of ClangTUParser::switchToFile(FileDef *fd)
+/home/gaetana/doxygen/src/clangparser.h:35: warning: The following parameter of ClangTUParser::switchToFile(FileDef *fd) is not documented:
+  parameter 'fd'
+warning: Caller graph for 'Definition::name' not generated, too many nodes (226), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+/home/gaetana/doxygen/libmscgen/gd.h:454: warning: Unsupported xml/html tag <gdPointF> found
+/home/gaetana/doxygen/libmscgen/gd.h:457: warning: Unsupported xml/html tag <gdImageCreate> found
+/home/gaetana/doxygen/libmscgen/gd.h:457: warning: Unsupported xml/html tag <gdImageCreateTrueColor> found
+/home/gaetana/doxygen/libmscgen/gd.h:870: warning: Unsupported xml/html tag <gdRect> found
+warning: Call graph for 'LayoutParser::init' not generated, too many nodes (107), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Call graph for 'MemberContext::Private::Private' not generated, too many nodes (141), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Call graph for 'MemberDefImpl::writeDeclaration' not generated, too many nodes (113), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Call graph for 'MemberDefImpl::writeDocumentation' not generated, too many nodes (132), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Caller graph for 'OutputList::forall' not generated, too many nodes (196), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+/home/gaetana/doxygen/src/parserintf.h:169: warning: argument 'outlineParser' of command @param is not found in the argument list of ParserManager::registerParser(const char *name, OutlineParserFactory outlineParserFactory, std::unique_ptr< CodeParserInterface > codeParserInterface)
+/home/gaetana/doxygen/src/parserintf.h:169: warning: argument 'codeParser' of command @param is not found in the argument list of ParserManager::registerParser(const char *name, OutlineParserFactory outlineParserFactory, std::unique_ptr< CodeParserInterface > codeParserInterface)
+/home/gaetana/doxygen/src/parserintf.h:176: warning: The following parameters of ParserManager::registerParser(const char *name, OutlineParserFactory outlineParserFactory, std::unique_ptr< CodeParserInterface > codeParserInterface) are not documented:
+  parameter 'outlineParserFactory'
+  parameter 'codeParserInterface'
+/home/gaetana/doxygen/qtools/qbuffer.cpp:56: warning: unable to resolve link to 'shclass.html' for \link command
+/home/gaetana/doxygen/qtools/qbuffer.cpp:62: warning: Found unknown command '\l'
+/home/gaetana/doxygen/qtools/qbuffer.cpp:62: warning: Found unknown command '\l'
+/home/gaetana/doxygen/qtools/qbuffer.cpp:75: warning: unable to resolve link to 'shclass.html' for \link command
+/home/gaetana/doxygen/qtools/qbuffer.cpp:239: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qbuffer.cpp:248: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qbuffer.cpp:212: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qbuffer.cpp:227: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qbuffer.cpp:384: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qbuffer.cpp:171: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qbuffer.cpp:407: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qbuffer.cpp:271: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qbuffer.cpp:350: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qbuffer.cpp:244: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qbuffer.cpp:443: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qbuffer.cpp:301: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qcollection.cpp:49: warning: unable to resolve link to 'collection.html' for \link command
+/home/gaetana/doxygen/qtools/qcollection.cpp:59: warning: unable to resolve link to 'collection.html' for \link command
+warning: Caller graph for 'QCString::data' not generated, too many nodes (298), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Caller graph for 'QCString::find' not generated, too many nodes (135), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Caller graph for 'QCString::isEmpty' not generated, too many nodes (444), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Caller graph for 'QCString::left' not generated, too many nodes (170), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Caller graph for 'QCString::length' not generated, too many nodes (227), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Caller graph for 'QCString::mid' not generated, too many nodes (119), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Caller graph for 'QCString::right' not generated, too many nodes (141), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+/home/gaetana/doxygen/qtools/qdatastream.cpp:104: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qdatastream.cpp:314: warning: Found unknown command '\obsolete'
+/home/gaetana/doxygen/qtools/qdatetime.cpp:1381: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qdatetime.cpp:1381: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qdatetime.cpp:1393: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qdatetime.cpp:1393: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qdatetime.cpp:1435: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qdatetime.cpp:1435: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qdatetime.cpp:1447: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qdatetime.cpp:1447: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qfile_unix.cpp:523: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qfile.cpp:373: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qgdict.cpp:50: warning: unable to resolve link to 'collection.html' for \link command
+/home/gaetana/doxygen/qtools/qglist.cpp:75: warning: unable to resolve link to 'collection.html' for \link command
+warning: Caller graph for 'QList::append' not generated, too many nodes (258), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Caller graph for 'QListIterator::current' not generated, too many nodes (299), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Caller graph for 'QListIterator::toFirst' not generated, too many nodes (222), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+/home/gaetana/doxygen/qtools/qregexp.cpp:59: warning: expected whitespace after \c command
+/home/gaetana/doxygen/qtools/qregexp.cpp:61: warning: Found unknown command '\t'
+/home/gaetana/doxygen/qtools/qregexp.cpp:63: warning: Found unknown command '\r'
+/home/gaetana/doxygen/qtools/qregexp.cpp:64: warning: Found unknown command '\s'
+/home/gaetana/doxygen/qtools/qregexp.cpp:68: warning: Found unknown command '\d'
+/home/gaetana/doxygen/qtools/qregexp.cpp:71: warning: Found unknown command '\x1f6b'
+/home/gaetana/doxygen/qtools/qregexp.cpp:72: warning: Found unknown command '\x0012'
+/home/gaetana/doxygen/qtools/qregexp.cpp:109: warning: Found unknown command '\s'
+/home/gaetana/doxygen/qtools/qregexp.cpp:243: warning: Found unknown command '\obsolete'
+/home/gaetana/doxygen/qtools/qgarray.cpp:69: warning: unable to resolve link to 'shclass.html' for \link command
+/home/gaetana/doxygen/qtools/qstring.cpp:12197: warning: unable to resolve link to 'shclass.html' for \link command
+/home/gaetana/doxygen/qtools/qstring.cpp:12222: warning: unable to resolve link to 'shclass.html' for \link command
+/home/gaetana/doxygen/qtools/qstring.cpp:14541: warning: Found unknown command '\obsolete'
+/home/gaetana/doxygen/qtools/qstring.cpp:12934: warning: Found unknown command '\obsolete'
+/home/gaetana/doxygen/qtools/qstring.cpp:14384: warning: Found unknown command '\obsolete'
+/home/gaetana/doxygen/qtools/qstring.cpp:14363: warning: Found unknown command '\obsolete'
+/home/gaetana/doxygen/qtools/qstring.cpp:12761: warning: unable to resolve link to 'QObject::tr()' for \link command
+/home/gaetana/doxygen/qtools/qstring.cpp:15114: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qstring.cpp:15161: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qstring.cpp:15161: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qtextstream.cpp:61: warning: Found unknown command '\define'
+/home/gaetana/doxygen/qtools/qtextstream.cpp:62: warning: Found unknown command '\define'
+/home/gaetana/doxygen/qtools/qtextstream.cpp:63: warning: Found unknown command '\define'
+/home/gaetana/doxygen/qtools/qtextstream.cpp:64: warning: Found unknown command '\define'
+/home/gaetana/doxygen/qtools/qtextstream.cpp:65: warning: Found unknown command '\define'
+/home/gaetana/doxygen/qtools/qtextstream.cpp:66: warning: Found unknown command '\define'
+/home/gaetana/doxygen/qtools/qtextstream.cpp:67: warning: Found unknown command '\define'
+/home/gaetana/doxygen/qtools/qtextstream.cpp:507: warning: Found unknown command '\obsolete'
+/home/gaetana/doxygen/qtools/qtextstream.cpp:1012: warning: Found unknown command '\obsolete'
+/home/gaetana/doxygen/qtools/qdatetime.cpp:1408: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qdatetime.cpp:1408: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qdatetime.cpp:1420: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qdatetime.cpp:1420: warning: unable to resolve link to 'datastreamformat.html' for \link command
+/home/gaetana/doxygen/qtools/qxml.cpp:538: warning: Found unknown command '\module'
+/home/gaetana/doxygen/qtools/qxml.cpp:845: warning: Found unknown command '\module'
+/home/gaetana/doxygen/qtools/qxml.cpp:1302: warning: Found unknown command '\module'
+/home/gaetana/doxygen/qtools/qxml.cpp:1357: warning: Found unknown command '\module'
+/home/gaetana/doxygen/qtools/qxml.cpp:1112: warning: Found unknown command '\module'
+/home/gaetana/doxygen/qtools/qxml.cpp:1166: warning: Found unknown command '\module'
+/home/gaetana/doxygen/qtools/qxml.cpp:1055: warning: Found unknown command '\module'
+/home/gaetana/doxygen/qtools/qxml.cpp:709: warning: Found unknown command '\module'
+/home/gaetana/doxygen/qtools/qxml.cpp:1211: warning: Found unknown command '\module'
+/home/gaetana/doxygen/qtools/qxml.cpp:262: warning: Found unknown command '\module'
+/home/gaetana/doxygen/qtools/qxml.cpp:308: warning: Found unknown command '\module'
+/home/gaetana/doxygen/qtools/qxml.cpp:209: warning: Found unknown command '\module'
+/home/gaetana/doxygen/qtools/qxml.cpp:1695: warning: Found unknown command '\module'
+/home/gaetana/doxygen/qtools/qxml.cpp:1883: warning: Found unknown command '\module'
+/home/gaetana/doxygen/qtools/qxml.cpp:2046: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qxml.cpp:2070: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qxml.cpp:2038: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qxml.cpp:2030: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qxml.cpp:2054: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qxml.cpp:2062: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qxml.cpp:2076: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qxml.cpp:2633: warning: Unsupported xml/html tag </name> found
+/home/gaetana/doxygen/qtools/qxml.cpp:2042: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qxml.cpp:2066: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qxml.cpp:2034: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qxml.cpp:2026: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qxml.cpp:2050: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/qtools/qxml.cpp:2058: warning: Found unknown command '\reimp'
+/home/gaetana/doxygen/testing/009_bug.cpp:54: warning: Found unknown command '\reminder'
+/home/gaetana/doxygen/testing/009_bug.cpp:58: warning: Found unknown command '\reminder'
+/home/gaetana/doxygen/testing/009_bug.cpp:54: warning: Found unknown command '\reminder'
+/home/gaetana/doxygen/testing/009_bug.cpp:58: warning: Found unknown command '\reminder'
+warning: Caller graph for 'SharedPtr::get' not generated, too many nodes (112), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+/home/gaetana/doxygen/addon/doxysearch/doxyindexer.cpp:195: warning: Unsupported xml/html tag </doc> found
+/home/gaetana/doxygen/addon/doxysearch/doxyindexer.cpp:195: warning: Unsupported xml/html tag </field> found
+/home/gaetana/doxygen/addon/doxysearch/doxyindexer.cpp:175: warning: Unsupported xml/html tag <doc> found
+/home/gaetana/doxygen/addon/doxysearch/doxyindexer.cpp:175: warning: Unsupported xml/html tag <field> found
+/home/gaetana/doxygen/vhdlparser/TokenManager.h:21: warning: Unsupported xml/html tag <EOF> found
+warning: Caller graph for 'vhdl::parser::VhdlParser::jj_save' not generated, too many nodes (125), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+warning: Caller graph for 'vhdl::parser::VhdlParser::jj_scan_token' not generated, too many nodes (345), threshold is 100. Consider increasing DOT_GRAPH_MAX_NODES.
+/home/gaetana/doxygen/testing/009_bug.cpp:54: warning: Found unknown command '\reminder'
+/home/gaetana/doxygen/testing/009_bug.cpp:54: warning: Found unknown command '\reminder'
+/home/gaetana/doxygen/testing/009_bug.cpp:54: warning: Found unknown command '\reminder'
