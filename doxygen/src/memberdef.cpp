@@ -4295,14 +4295,16 @@ void MemberDefImpl::transform( _auto_generate_s& lags ) const
   stringstream doxyblock;
   #define DOXY_BLOCK  "///"
   #define DOXY_HEADER(f,p,t)\
+  doxyblock<<DOXY_BLOCK<<endl;\
   doxyblock<<DOXY_BLOCK;\
-  doxyblock<<"\\"<<"fn"<<endl;\
+  doxyblock<<" \\"<<"fn "<<f<<endl;\
   doxyblock<<DOXY_BLOCK;\
-  doxyblock<<"\\"<<"brief  [MUST BE COMPLETED] "<<endl;\
+  doxyblock<<" \\"<<"brief  [MUST BE COMPLETED] "<<endl;\
   doxyblock<<DOXY_BLOCK;\
-  doxyblock<<"\\"<<"param"<<endl;\
-  //doxyblock<<DOXY_BLOCK;
-  //doxyblock<<"\\"<<"return"<<endl;
+  doxyblock<<" \\"<<"param "<<p<<endl;\
+  doxyblock<<DOXY_BLOCK;\
+  doxyblock<<" \\"<<"return "<<t<<endl;\
+  doxyblock<<DOXY_BLOCK<<endl;\
 
 
   
