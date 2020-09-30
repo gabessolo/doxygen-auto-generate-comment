@@ -1,6 +1,6 @@
 #!/bin/sh
 # make_docu.sh - script to generate doxygen documentation
-CURDIR=`pwd`
+CURDIR=../../doxyfile
 CONFIG_FILE=$CURDIR/config.doxygen 
 log()
 {
@@ -36,8 +36,8 @@ rm  $DOXYGEN_INPUT_DIRECTORY/*.001
 rm  $DOXYGEN_INPUT_DIRECTORY/*.002
 
 if [ "$?" -eq "0" ];then
-	cp config.doxygen $DOXYGEN_SCRIPT_DIR
-	cp make_docu.sh   $DOXYGEN_SCRIPT_DIR
+	cp $CURDIR/config.doxygen $DOXYGEN_SCRIPT_DIR
+	cp $CURDIR/make_docu2.sh   $DOXYGEN_SCRIPT_DIR
 	log "copy make_docu.sh  config.doxygen into "$DOXYGEN_SCRIPT_DIR
 	log "doxygen done."
 

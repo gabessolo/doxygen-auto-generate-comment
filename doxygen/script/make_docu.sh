@@ -1,19 +1,19 @@
 #!/bin/sh
 # make_docu.sh - script to generate doxygen documentation
-# usage : ./make_docu.sh 
-
-CONFIG_FILE=/home/gaetana/doxyfile/config.doxygen 
+CURDIR=`pwd`
+CONFIG_FILE=$CURDIR/config.doxygen 
 log()
 {
 	echo "===> $@" | tee -a ${LOGFILE}
 }
 log "doxyfile started OK."
-#DOXYGEN_INPUT_DIRECTORY=/home/gaetana/firmware
-DOXYGEN_INPUT_DIRECTORY=/home/gaetana/firmware/src/clamavd
-DOXYGEN_INPUT_FILE=/home/gaetana/firmware/src/clamavd/clamavd.c
-DOXYGEN_OUTPUT_DIRECTORY=/home/gaetana/doxyfile/
-DOXYGEN_SCRIPT_DIR=/home/gaetana/doxygen/script
-DOXYGEN_OUTPUT_AUTO_GENERATE_DIR=/home/gaetana/doxyfile/doxyfirmware/
+#DOXYGEN_INPUT_DIRECTORY=$CURDIR/../../firmware
+DOXYGEN_INPUT_DIRECTORY=$CURDIR/../../firmware/src/clamavd
+DOXYGEN_INPUT_FILE=$CURDIR/../../firmware/src/clamavd/clamavd.c
+DOXYGEN_OUTPUT_DIRECTORY=$CURDIR
+DOXYGEN_SCRIPT_DIR=$CURDIR/../doxygen/script
+DOXYGEN_OUTPUT_AUTO_GENERATE_DIR=$CURDIR
+DOXYGEN_OUTPUT_UNDOCUMENTED_DIR=$CURDIR
 
 
 log "clean  previous undocumented.txt file"

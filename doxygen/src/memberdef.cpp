@@ -4292,14 +4292,20 @@ bool MemberDefImpl::readline(FILE* id,char* buffer ) const
 void MemberDefImpl::transform( _auto_generate_s& lags ) const
 {
   int nb_line=0;
-  #define DOXY_HEADER 	"DOXYBLOCK\n"\
-  			"fn []\n"\
-  			"brief []\n"\
-  			"param []\n"\
-  			"return []\n"
+  stringstream doxyblock;
+  #define DOXY_BLOCK  "///"
+  #define DOXY_HEADER(f,p,t)\
+  doxyblock<<DOXY_BLOCK;\
+  doxyblock<<"\\"<<"fn"<<endl;\
+  doxyblock<<DOXY_BLOCK;\
+  doxyblock<<"\\"<<"brief  [MUST BE COMPLETED] "<<endl;\
+  doxyblock<<DOXY_BLOCK;\
+  doxyblock<<"\\"<<"param"<<endl;\
+  //doxyblock<<DOXY_BLOCK;
+  //doxyblock<<"\\"<<"return"<<endl;
+
 
   
-  QCString templ(DOXY_HEADER);
   FILE* id=NULL;
   QCString src=lags.absFile;
   QCString dst =lags.absFile+".001";
@@ -4329,10 +4335,15 @@ void MemberDefImpl::transform( _auto_generate_s& lags ) const
      if (nb_line==(lags.no_line-1))
      {
         nb_line++;   
+	const char* f=lags.name.data(); //function name
+	const char* p=lags.arg.data();  //list of arguments
+	const char* t=lags.type.data(); //return type
+
         if (lags.prev==NULL && lags.show==false)	
 	{
-		ss<<DOXY_HEADER;
-		ss2<<DOXY_HEADER;
+		DOXY_HEADER(f,p,t);
+		ss<<doxyblock.str();
+		ss2<<doxyblock.str();
 		ss<<nb_line<<" ("<<lags.no_line<<") "<<buffer;
 		ss2<<buffer;
 		lags.show=true;
@@ -4351,8 +4362,9 @@ void MemberDefImpl::transform( _auto_generate_s& lags ) const
 	}
 	else if (lags.prev && (nb_line>=lags.prev->no_line) && lags.show==false)
 	{
-		ss<<DOXY_HEADER;
-		ss2<<DOXY_HEADER;
+		DOXY_HEADER(f,p,t);
+		ss<<doxyblock.str();
+		ss2<<doxyblock.str();
 		ss<<nb_line<<" ("<<lags.no_line<<") "<<buffer;
 		ss2<<buffer;
 		lags.show=true;
