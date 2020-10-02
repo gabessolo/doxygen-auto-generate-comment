@@ -4222,8 +4222,12 @@ void MemberDefImpl::autoGenerateComment( _auto_generate_s &lags) const
 bool MemberDefImpl::readline(FILE* id,char* buffer ) const
 {
   char* pScan=buffer;
-  if (id==NULL ) return false;
-  if (*buffer=='\0' ) return false;
+  if (id==NULL ) 
+  {	
+	  printf("impossible d'ouvrir le fichier\n");
+	  return false;
+  }
+//  if (*buffer=='\0' ) return false;
   memset(buffer,'\0',MAX_BUFFER);  
   while(fread(pScan,sizeof(char),1,id)!=0 && *pScan!='\n'  && (pScan-buffer)<MAX_BUFFER)
   {
@@ -4261,7 +4265,9 @@ void MemberDefImpl::transform( _auto_generate_s& lags,MemberListIterator& mli ) 
   doxyblock<<DOXY_BLOCK<<endl;\
 
 
+	 
   
+
   FILE* id=NULL;
   QCString src=lags.absFile;
   QCString dst =lags.absFile+".001";
@@ -4271,11 +4277,24 @@ void MemberDefImpl::transform( _auto_generate_s& lags,MemberListIterator& mli ) 
   ofstream output2;
   stringstream ss;
   stringstream ss2;
+ 
+  // fix doxygen bug  
+  if ((lags.absFile.data()==0 || lags.absFile.data()==NULL) && lags.prev)
+  {
+     auto_generate_s* plags=&lags;
+     while(plags->prev && (plags->prev->absFile.data()==0 || plags->prev->absFile.data()==NULL))
+     {
+	plags=plags->prev;
+	src =plags->prev->absFile;
+   	dst =plags->prev->absFile+".001";
+        dst2=plags->prev->absFile+".002";
+     }
+     printf("update name file by previous node\n");
+  }
+	  
   id=fopen (src.data(),"r");
   if(id)  
   {    
-     
-
      while(readline(id, buffer)==true && (nb_line < (lags.no_line-1)))  
      {
         nb_line++;
@@ -4320,7 +4339,7 @@ void MemberDefImpl::transform( _auto_generate_s& lags,MemberListIterator& mli ) 
 			output2.close();
 		}
 	}
-	else if (lags.prev && (nb_line>=lags.prev->no_line) && lags.show==false)
+	else if (lags.prev && (nb_line>lags.prev->no_line) && lags.show==false)
 	{
 		DOXY_HEADER(f,p,t);
 		ss<<doxyblock.str();
@@ -4344,27 +4363,51 @@ void MemberDefImpl::transform( _auto_generate_s& lags,MemberListIterator& mli ) 
      }
      // the last undocumented member HIT
      MemberListIterator _mli=mli;
-     if ( _mli.toLast()==this) 
+     if (  _mli.toLast()==this) 
      {
-       	//nb_line++;   
-        printf("// the last undocumented member HIT %d\n", _mli.count());
-	/*while((lags.prev) && readline(id,buffer)==true && (nb_line > lags.prev->no_line) && lags.show==false) 
-     	{	     
-		ss2<< buffer;
-		lags.show=true;
-     	}
-	output2.open(dst2.data(),ios::app);
-	if (output2)
-	{
-		output2 << ss2.str();
-		output2.close();
-	}*/
+        //printf("// the last undocumented member HIT at %d nth member ... nb_line %d no_line %d\n",_mli.count(),nb_line,lags.no_line);
+        fclose(id);
+	nb_line=0;
+  	FILE* id2=fopen (src.data(),"r");
+  	if(id2)  
+  	{    
+                ss.str(std::string());
+                ss2.str(std::string());
+		//printf("// file %s opened \n",src.data());
+		while(readline(id2,buffer)==true)
+		{
+			nb_line++;  	 
+       			//printf("%d \t\t%s",nb_line,buffer);
+			
+			if (nb_line > lags.no_line ) 
+     			{	     
+				ss<<nb_line<<" ("<<lags.no_line<<") "<<buffer;
+				ss2<< buffer;
+     			}
+		}
+        	fclose(id2);
+		output.open(dst.data(),ios::app);
+		if (output)
+		{
+			output << ss.str();
+			output.close();
+		}
+		output2.open(dst2.data(),ios::app);
+		if (output2)
+		{
+			output2 << ss2.str();
+			output2.close();
+		}
+	}
+   	else
+   	{  
+      		msg("error creating input src file 2 '%s'\n",src.data());
+   	}
      }
-     fclose(id);
    }	
    else
    {  
-      msg("error creating file '%s'\n",src.data());
+      msg("error creating input src file 1 '%s'\n",src.data());
    }
 }
 
