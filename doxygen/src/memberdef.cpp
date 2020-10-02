@@ -324,7 +324,7 @@ class MemberDefImpl : public DefinitionImpl, public MemberDef
     virtual void writeEnumDeclaration(OutputList &typeDecl,
             const ClassDef *cd,const NamespaceDef *nd,const FileDef *fd,const GroupDef *gd) const;
     virtual void writeTagFile(FTextStream &) const;
-    virtual void warnIfUndocumented() const;
+    virtual void warnIfUndocumented(MemberListIterator& mli) const;
     virtual void warnIfUndocumentedParams() const;
     virtual void detectUndocumentedParams(bool hasParamCommand,bool hasReturnCommand) const;
     virtual MemberDef *createTemplateInstanceMember(const ArgumentList &formalArgs,
@@ -340,7 +340,7 @@ class MemberDefImpl : public DefinitionImpl, public MemberDef
   					   const FileDef      *fd,
 					   const GroupDef     *gd,
 					   const Definition   *d,_auto_generate_s& lags) const ;
-   virtual void transform( _auto_generate_s& lags ) const;
+   virtual void transform( _auto_generate_s& lags,MemberListIterator& mli ) const;
    #define MAX_BUFFER 1024 
    bool readline(FILE* id,char* buffer ) const;
 
@@ -860,7 +860,7 @@ class MemberDefAliasImpl : public DefinitionAliasImpl, public MemberDef
                    const ClassDef *cd,const NamespaceDef *nd,const FileDef *fd,const GroupDef *gd,
                    bool onlyText=FALSE) const {}
     virtual void writeTagFile(FTextStream &) const {}
-    virtual void warnIfUndocumented() const {}
+    virtual void warnIfUndocumented(MemberListIterator& mli) const {}
     virtual void warnIfUndocumentedParams() const {}
     virtual void detectUndocumentedParams(bool hasParamCommand,bool hasReturnCommand) const {}
     virtual void autoGenerateComment(_auto_generate_s &lags) const {};
@@ -869,7 +869,7 @@ class MemberDefAliasImpl : public DefinitionAliasImpl, public MemberDef
   					   const FileDef      *fd,
 					   const GroupDef     *gd,
 					   const Definition   *d,_auto_generate_s& lags) const {};
-   virtual void transform(_auto_generate_s& lags )  const {};
+   virtual void transform(_auto_generate_s& lags,MemberListIterator& mli )  const {};
   private:
     MemberGroup *m_memberGroup; // group's member definition
 };
@@ -2657,8 +2657,9 @@ void MemberDefImpl::writeDeclaration(OutputList &ol,
   }
 
   ol.endMemberDeclaration(anchor(),inheritId);
-
-  warnIfUndocumented();
+  MemberList ml;
+  MemberListIterator mli(ml);
+  warnIfUndocumented(mli);
 }
 
 bool MemberDefImpl::isDetailedSectionLinkable() const
@@ -4028,24 +4029,11 @@ QCString MemberDefImpl::memberTypeName() const
 }
 
 MemberDef::_auto_generate_s  MemberDef::LIST_AUTO_GENERATE_STRUCT[100];
-/*{
-  .name="",    // member name 
-  .arg="",    
-  .member="",  // kind of member : function, variable, macro, struct 
-  .t="",
-  .d_name="",  // file name 
-  .type="",    // return type  
-  .absFile="", // absolute file name 
-  .no_line=0 , // item position number
-  .show=false,
-  .next=NULL,  // twice linkable 
-  .prev=NULL
-};*/
 
 MemberDef::_auto_generate_s*  MemberDef::plags=&MemberDef::LIST_AUTO_GENERATE_STRUCT[0];
 int  MemberDef::no=0;
 
-void MemberDefImpl::warnIfUndocumented() const 
+void MemberDefImpl::warnIfUndocumented(MemberListIterator& mli) const 
 {
   /*
    *  Removed bug_303020:
@@ -4096,7 +4084,7 @@ void MemberDefImpl::warnIfUndocumented() const
        saveUndocummentedItem(cd,nd,fd,gd,d,LIST_AUTO_GENERATE_STRUCT[0]);
 
        /*insert  comment */
-       transform(LIST_AUTO_GENERATE_STRUCT[no-1]); 
+       transform(LIST_AUTO_GENERATE_STRUCT[no-1],mli); 
        
        /*auto generate comment */
        //autoGenerateComment(LIST_AUTO_GENERATE_STRUCT[no]);
@@ -4124,8 +4112,11 @@ void MemberDefImpl::saveUndocummentedItem( const ClassDef     *cd,
     t="file", d=fd;
   
   /***********
-   * by pass #define, variable, typedef
+   *  auto ducument function member 
    * ************/
+
+  if (memberType() != MemberType_Function)
+	  return;
 
   _auto_generate_s ags;
 
@@ -4140,46 +4131,8 @@ void MemberDefImpl::saveUndocummentedItem( const ClassDef     *cd,
   ags.show=false;
   ags.next=NULL;
   ags.prev=NULL;
-  
-  if (ags.type==QCString("#define"))
-  {
-  	return;
-  }
-  char* data=(char*)ags.type.data();
-  if (data!=NULL)
-  {
-  	data[6]='\0';	
-  }
-  if (QCString(data) == QCString("struct"))
-  {
-  	return;
-  }
 
-  data=(char*)ags.type.data();
-  if (data!=NULL)
-  {
-  	data[7]='\0';	
-  }
-  if (QCString(data) == QCString("typedef"))
-  {
-  	return;
-  }
-  if (ags.member==QCString("variable"))
-  {
-  	return;
-  }
-  if (ags.member==QCString("typedef"))
-  {
-  	return;
-  }
-  if (ags.member==QCString("enum"))
-  {
-  	return;
-  }
-  if (ags.member==QCString(""))
-  {
-  	return;
-  }
+
 
   if (plags==&lags)
   {
@@ -4263,6 +4216,7 @@ void MemberDefImpl::saveUndocummentedItem( const ClassDef     *cd,
 
 void MemberDefImpl::autoGenerateComment( _auto_generate_s &lags) const
 {
+   
 }
 
 bool MemberDefImpl::readline(FILE* id,char* buffer ) const
@@ -4289,7 +4243,7 @@ bool MemberDefImpl::readline(FILE* id,char* buffer ) const
   return false;
 }
 
-void MemberDefImpl::transform( _auto_generate_s& lags ) const
+void MemberDefImpl::transform( _auto_generate_s& lags,MemberListIterator& mli ) const
 {
   int nb_line=0;
   stringstream doxyblock;
@@ -4320,6 +4274,8 @@ void MemberDefImpl::transform( _auto_generate_s& lags ) const
   id=fopen (src.data(),"r");
   if(id)  
   {    
+     
+
      while(readline(id, buffer)==true && (nb_line < (lags.no_line-1)))  
      {
         nb_line++;
@@ -4334,6 +4290,8 @@ void MemberDefImpl::transform( _auto_generate_s& lags ) const
 		ss2<< buffer;
 	}
      }
+     
+
      if (nb_line==(lags.no_line-1))
      {
         nb_line++;   
@@ -4383,6 +4341,24 @@ void MemberDefImpl::transform( _auto_generate_s& lags ) const
 			output2.close();
 		}
 	}
+     }
+     // the last undocumented member HIT
+     MemberListIterator _mli=mli;
+     if ( _mli.toLast()==this) 
+     {
+       	//nb_line++;   
+        printf("// the last undocumented member HIT %d\n", _mli.count());
+	/*while((lags.prev) && readline(id,buffer)==true && (nb_line > lags.prev->no_line) && lags.show==false) 
+     	{	     
+		ss2<< buffer;
+		lags.show=true;
+     	}
+	output2.open(dst2.data(),ios::app);
+	if (output2)
+	{
+		output2 << ss2.str();
+		output2.close();
+	}*/
      }
      fclose(id);
    }	

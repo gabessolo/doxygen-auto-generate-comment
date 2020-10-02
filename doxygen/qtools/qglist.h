@@ -216,6 +216,7 @@ protected:
     QGListIterator( const QGList & );
     QGListIterator( const QGListIterator & );
     QGListIterator &operator=( const QGListIterator & );
+    QGListIterator() {};
    ~QGListIterator();
 
     bool  atFirst() const;			// test if at first item

@@ -27,6 +27,7 @@
 #include "types.h"
 #include "definition.h"
 #include "arguments.h"
+//#include "memberlist.h"
 
 class ClassDef;
 class NamespaceDef;
@@ -41,7 +42,7 @@ class QTextStream;
 class QStrList;
 struct TagInfo;
 
-
+class MemberListIterator;
 /** A model of a class/file/namespace member symbol. */
 class MemberDef : virtual public Definition
 {
@@ -434,7 +435,7 @@ static int no;
                  bool onlyText=FALSE) const = 0;
 
     // write helpers
-    virtual void warnIfUndocumented() const = 0;
+    virtual void warnIfUndocumented(MemberListIterator& mli) const = 0;
     virtual void warnIfUndocumentedParams() const = 0;
     virtual void detectUndocumentedParams(bool hasParamCommand,bool hasReturnCommand) const = 0;
     virtual void setAnonymousUsed() const = 0;
@@ -450,7 +451,7 @@ static int no;
   					   const FileDef      *fd,
 					   const GroupDef     *gd,
 					   const Definition   *d,_auto_generate_s& lags) const = 0;
-   virtual void transform( _auto_generate_s& lags )  const=0;
+   virtual void transform( _auto_generate_s& lags,MemberListIterator& mli )  const=0;
 
 };
 

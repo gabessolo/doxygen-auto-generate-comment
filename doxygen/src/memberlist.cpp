@@ -465,7 +465,7 @@ void MemberList::writePlainDeclarations(OutputList &ol,
         //case MemberType_Prototype: // fall through
         case MemberType_Typedef:     // fall through
         case MemberType_Variable:    // fall through
-        case MemberType_Function:    // fall through
+        //case MemberType_Function:    // fall through
         case MemberType_Signal:      // fall through
         case MemberType_Slot:        // fall through
         case MemberType_DCOP:        // fall through
@@ -476,11 +476,20 @@ void MemberList::writePlainDeclarations(OutputList &ol,
         case MemberType_Dictionary:  // fall through
         case MemberType_Event:
           {
-            if (first) ol.startMemberList(),first=FALSE;
+            if (first) 
+	    {
+	    ol.startMemberList();first=FALSE;
+    	    //printf("(%d) >>> Member '%s' type=%d visible=%d\n",__LINE__,md->name().data(),md->memberType(),md->isBriefSectionVisible());
             md->writeDeclaration(ol,cd,nd,fd,gd,m_inGroup,inheritedFrom,inheritId);
+	    }
             break;
           }
-        case MemberType_Enumeration:
+	case MemberType_Function: 
+	    first=FALSE;
+    	    //printf("(%d) >>> Member '%s' type=%d visible=%d\n",__LINE__,md->name().data(),md->memberType(),md->isBriefSectionVisible());
+            md->warnIfUndocumented(mli);
+	    break;
+	case MemberType_Enumeration:
           {
             // if this is an anonymous enum and there are variables of this
             // enum type (i.e. enumVars>0), then we do not show the enum here.
@@ -540,7 +549,7 @@ void MemberList::writePlainDeclarations(OutputList &ol,
               }
               ol.endMemberDeclaration(md->anchor(),inheritId);
             }
-            md->warnIfUndocumented();
+            //md->warnIfUndocumented(mli);
             break;
           }
         case MemberType_Friend:

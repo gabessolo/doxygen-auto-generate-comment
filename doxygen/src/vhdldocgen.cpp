@@ -2190,7 +2190,9 @@ void VhdlDocGen::writeVHDLDeclaration(const MemberDef* mdef,OutputList &ol,
     //ol.newParagraph();
     ol.endMemberDescription();
   }
-  mdef->warnIfUndocumented();
+  MemberList ml;
+  MemberListIterator mli(ml);
+  mdef->warnIfUndocumented(mli);
 
 }// end writeVhdlDeclaration
 
