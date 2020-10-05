@@ -27,7 +27,7 @@
 #include "types.h"
 #include "definition.h"
 #include "arguments.h"
-//#include "memberlist.h"
+#include  <mutex>
 
 class ClassDef;
 class NamespaceDef;
@@ -41,6 +41,7 @@ class GroupDef;
 class QTextStream;
 class QStrList;
 struct TagInfo;
+using namespace std;
 
 class MemberListIterator;
 /** A model of a class/file/namespace member symbol. */
@@ -63,10 +64,12 @@ class MemberDef : virtual public Definition
   struct auto_generate_s* prev;
   } _auto_generate_s;
   
-static _auto_generate_s   LIST_AUTO_GENERATE_STRUCT[100];
+#define  CIRCULAR_BUFFER_MAX_ELEMENT 1024 
+static _auto_generate_s   LIST_AUTO_GENERATE_STRUCT[CIRCULAR_BUFFER_MAX_ELEMENT];
 static _auto_generate_s*  plags;
 static int no;
- 
+static mutex door;
+
   public:
     virtual ~MemberDef() {}
     virtual DefType definitionType() const = 0;

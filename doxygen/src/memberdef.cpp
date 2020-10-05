@@ -48,6 +48,7 @@
 #include <fstream>
 #include <sstream>
 #include <stdlib.h>
+#include <mutex>
 using namespace std;
 //-----------------------------------------------------------------------------
 
@@ -4027,11 +4028,11 @@ QCString MemberDefImpl::memberTypeName() const
     default:          return "unknown";
   }
 }
-
-MemberDef::_auto_generate_s  MemberDef::LIST_AUTO_GENERATE_STRUCT[100];
-
-MemberDef::_auto_generate_s*  MemberDef::plags=&MemberDef::LIST_AUTO_GENERATE_STRUCT[0];
+// Hope that less than CIRCULAR_BUFFER_MAX_ELEMENT are not documented by file 
+MemberDef::_auto_generate_s  MemberDef::LIST_AUTO_GENERATE_STRUCT[CIRCULAR_BUFFER_MAX_ELEMENT];
 int  MemberDef::no=0;
+MemberDef::_auto_generate_s*  MemberDef::plags=&MemberDef::LIST_AUTO_GENERATE_STRUCT[no];
+std::mutex MemberDef::door;
 
 void MemberDefImpl::warnIfUndocumented(MemberListIterator& mli) const 
 {
@@ -4133,7 +4134,8 @@ void MemberDefImpl::saveUndocummentedItem( const ClassDef     *cd,
   ags.prev=NULL;
 
 
-
+  // begining of the circular buffer
+  // add the first item of the list
   if (plags==&lags)
   {
 	plags->name=ags.name;
@@ -4147,16 +4149,14 @@ void MemberDefImpl::saveUndocummentedItem( const ClassDef     *cd,
   	plags->show=ags.show=false;
         plags->next=plags->prev=NULL;	
 	_auto_generate_s* prev=plags;
-	
-      //	_auto_generate_s* new_ags=(_auto_generate_s*)malloc(sizeof(_auto_generate_s));
       	_auto_generate_s* new_ags=&LIST_AUTO_GENERATE_STRUCT[++no];
 	plags->next=new_ags;
   	plags=plags->next;
   	plags->next=NULL;
   	
 	plags->prev=prev;
-  }else
-  {
+  }else // add next item
+  {     
  	if (plags->next==NULL)
 	{
   	plags->name=ags.name.data();
@@ -4170,8 +4170,6 @@ void MemberDefImpl::saveUndocummentedItem( const ClassDef     *cd,
   	plags->show=ags.show=false;
   	plags->next=ags.next; ///NULL
 	_auto_generate_s* prev=plags;
-	
-      //	_auto_generate_s* new_ags=(_auto_generate_s*)malloc(sizeof(_auto_generate_s));
       	_auto_generate_s* new_ags=&LIST_AUTO_GENERATE_STRUCT[++no];
 	plags->next=new_ags;
   	plags=plags->next;
@@ -4210,7 +4208,7 @@ void MemberDefImpl::saveUndocummentedItem( const ClassDef     *cd,
   if (output)
   {
   	output << ss.str();
-	 output.close();
+ 	output.close();
   }
 }
 
@@ -4249,6 +4247,8 @@ bool MemberDefImpl::readline(FILE* id,char* buffer ) const
 
 void MemberDefImpl::transform( _auto_generate_s& lags,MemberListIterator& mli ) const
 {
+  door.lock();
+
   int nb_line=0;
   stringstream doxyblock;
   #define DOXY_BLOCK  "///"
@@ -4263,10 +4263,6 @@ void MemberDefImpl::transform( _auto_generate_s& lags,MemberListIterator& mli ) 
   doxyblock<<DOXY_BLOCK;\
   doxyblock<<" \\"<<"return "<<t<<endl;\
   doxyblock<<DOXY_BLOCK<<endl;\
-
-
-	 
-  
 
   FILE* id=NULL;
   QCString src=lags.absFile;
@@ -4291,7 +4287,6 @@ void MemberDefImpl::transform( _auto_generate_s& lags,MemberListIterator& mli ) 
      }
      printf("update name file by previous node\n");
   }
-	  
   id=fopen (src.data(),"r");
   if(id)  
   {    
@@ -4401,14 +4396,21 @@ void MemberDefImpl::transform( _auto_generate_s& lags,MemberListIterator& mli ) 
 	}
    	else
    	{  
-      		msg("error creating input src file 2 '%s'\n",src.data());
+      		msg("error opening input src file 2 '%s'\n",src.data());
    	}
+
+        // the last member of a file is reached
+	// go to the begining of the circular buffer to proceed another file          
+	// this feature enables the processing of huge number of files 
+	no=0;
+	plags=&MemberDef::LIST_AUTO_GENERATE_STRUCT[no];
      }
    }	
    else
    {  
-      msg("error creating input src file 1 '%s'\n",src.data());
+      msg("error opening input src file 1 '%s'\n",src.data());
    }
+   door.unlock();
 }
 
 void MemberDefImpl::detectUndocumentedParams(bool hasParamCommand,bool hasReturnCommand) const
