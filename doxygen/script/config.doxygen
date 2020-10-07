@@ -49,7 +49,7 @@ SUBGROUPING            = YES
 INLINE_GROUPED_CLASSES = NO
 INLINE_SIMPLE_STRUCTS  = NO
 TYPEDEF_HIDES_STRUCT   = NO
-LOOKUP_CACHE_SIZE      = 0
+LOOKUP_CACHE_SIZE      = 1 
 #---------------------------------------------------------------------------
 # Build related configuration options
 #---------------------------------------------------------------------------
@@ -114,7 +114,7 @@ FILE_PATTERNS          = *.h \
 RECURSIVE              = YES
 EXCLUDE                = $(EXCLUDE)
 EXCLUDE_SYMLINKS       = NO
-EXCLUDE_PATTERNS       =
+EXCLUDE_PATTERNS       = $(EXCLUDE_PATTERNS)
 EXCLUDE_SYMBOLS        =
 EXAMPLE_PATH           =
 EXAMPLE_PATTERNS       =

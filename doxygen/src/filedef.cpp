@@ -882,7 +882,6 @@ void FileDefImpl::writeDocumentation(OutputList &ol)
   //  fn.prepend(stripFromPath(getPath().copy()));
   //}
 
-  //printf("WriteDocumentation diskname=%s\n",diskname.data());
 
   QCString versionTitle;
   if (!m_fileVersion.isEmpty())

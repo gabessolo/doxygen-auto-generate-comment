@@ -49,6 +49,7 @@
 #include <sstream>
 #include <stdlib.h>
 #include <mutex>
+#include <unistd.h>
 using namespace std;
 //-----------------------------------------------------------------------------
 
@@ -4099,6 +4100,13 @@ void MemberDefImpl::saveUndocummentedItem( const ClassDef     *cd,
 					   const GroupDef     *gd,
 					   const Definition   *d,_auto_generate_s& lags) const
 { 
+  /***********
+   *  some member is not completely define.. skip  
+   * ************/
+  
+  if (getDefLine()==0)
+	  return;
+	
   QCString t;
   if (cd)
     t=cd->compoundTypeString(), d=cd;
@@ -4120,6 +4128,7 @@ void MemberDefImpl::saveUndocummentedItem( const ClassDef     *cd,
 	  return;
 
   _auto_generate_s ags;
+  //printf("Generating circular buffer for file %s...\n",fd->docName().data());
 
   ags.name=name();
   ags.arg=argsString();
@@ -4128,7 +4137,7 @@ void MemberDefImpl::saveUndocummentedItem( const ClassDef     *cd,
   ags.t=t;
   ags.type=typeString();
   ags.no_line=getDefLine(); 
-  ags.absFile=getDefFileName();
+  ags.absFile=fd->docName().data();
   ags.show=false;
   ags.next=NULL;
   ags.prev=NULL;
@@ -4138,14 +4147,14 @@ void MemberDefImpl::saveUndocummentedItem( const ClassDef     *cd,
   // add the first item of the list
   if (plags==&lags)
   {
-	plags->name=ags.name;
-  	plags->arg=ags.arg;
-  	plags->member=ags.member;
-  	plags->d_name=ags.d_name;
-  	plags->t=ags.t;
-  	plags->type=ags.type;
+	plags->name=ags.name.data();
+  	plags->arg=ags.arg.data();
+  	plags->member=ags.member.data();
+  	plags->d_name=ags.d_name.data();
+  	plags->t=ags.t.data();
+  	plags->type=ags.type.data();
   	plags->no_line=ags.no_line; 
-  	plags->absFile=ags.absFile;
+  	plags->absFile=ags.absFile.data();
   	plags->show=ags.show=false;
         plags->next=plags->prev=NULL;	
 	_auto_generate_s* prev=plags;
@@ -4247,7 +4256,12 @@ bool MemberDefImpl::readline(FILE* id,char* buffer ) const
 
 void MemberDefImpl::transform( _auto_generate_s& lags,MemberListIterator& mli ) const
 {
-  door.lock();
+  
+  /***********
+   *  some member is not completely define.. skip  
+   * ************/
+  if (lags.no_line==0)
+       return;
 
   int nb_line=0;
   stringstream doxyblock;
@@ -4265,7 +4279,7 @@ void MemberDefImpl::transform( _auto_generate_s& lags,MemberListIterator& mli ) 
   doxyblock<<DOXY_BLOCK<<endl;\
 
   FILE* id=NULL;
-  QCString src=lags.absFile;
+  QCString src=lags.absFile.data();
   QCString dst =lags.absFile+".001";
   QCString dst2=lags.absFile+".002";
   char buffer[MAX_BUFFER];
@@ -4274,19 +4288,7 @@ void MemberDefImpl::transform( _auto_generate_s& lags,MemberListIterator& mli ) 
   stringstream ss;
   stringstream ss2;
  
-  // fix doxygen bug  
-  if ((lags.absFile.data()==0 || lags.absFile.data()==NULL) && lags.prev)
-  {
-     auto_generate_s* plags=&lags;
-     while(plags->prev && (plags->prev->absFile.data()==0 || plags->prev->absFile.data()==NULL))
-     {
-	plags=plags->prev;
-	src =plags->prev->absFile;
-   	dst =plags->prev->absFile+".001";
-        dst2=plags->prev->absFile+".002";
-     }
-     printf("update name file by previous node\n");
-  }
+  //printf("opening %s name %s  no_line %d\n",src.data(),lags.name.data(),lags.no_line);
   id=fopen (src.data(),"r");
   if(id)  
   {    
@@ -4396,7 +4398,7 @@ void MemberDefImpl::transform( _auto_generate_s& lags,MemberListIterator& mli ) 
 	}
    	else
    	{  
-      		msg("error opening input src file 2 '%s'\n",src.data());
+      		msg("error/2 opening %s name %s  no_line %d errno %d\n",src.data(),lags.name.data(),lags.no_line,errno);
    	}
 
         // the last member of a file is reached
@@ -4404,13 +4406,16 @@ void MemberDefImpl::transform( _auto_generate_s& lags,MemberListIterator& mli ) 
 	// this feature enables the processing of huge number of files 
 	no=0;
 	plags=&MemberDef::LIST_AUTO_GENERATE_STRUCT[no];
+     }else
+     {
+       // do not forget to close file
+       fclose(id);
      }
    }	
    else
    {  
-      msg("error opening input src file 1 '%s'\n",src.data());
+      msg("error/1 opening %s name %s  no_line %d errno %d\n",src.data(),lags.name.data(),lags.no_line,errno);
    }
-   door.unlock();
 }
 
 void MemberDefImpl::detectUndocumentedParams(bool hasParamCommand,bool hasReturnCommand) const
